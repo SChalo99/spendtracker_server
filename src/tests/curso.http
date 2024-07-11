@@ -1,0 +1,214 @@
+GET http://localhost:3001/cursos
+########
+
+POST http://localhost:3001/roles
+Content-Type: application/json
+
+{
+    "idRol": 1,
+    "descripcion": "Alumno"
+}
+###
+
+POST http://localhost:3001/roles
+Content-Type: application/json
+
+{
+    "idRol": 2,
+    "descripcion": "Docente"
+}
+###
+POST http://localhost:3001/universidades
+Content-Type: application/json
+
+{
+    "idUniversidad": 1,
+    "descripcion": "Universidad de Lima"
+}
+###
+POST http://localhost:3001/carreras
+Content-Type: application/json
+
+{
+    "idCarrera": 1,
+    "nombre": "Ingeniería de Sistemas",
+    "idUniversidad": 1
+}
+###
+POST http://localhost:3001/carreras
+Content-Type: application/json
+
+{
+    "idCarrera": 2,
+    "nombre": "Ingeniería de Software",
+    "idUniversidad": 1
+}
+###
+POST http://localhost:3001/personas
+Content-Type: application/json
+
+{
+    "idPersona": 1,
+    "nombre": "Andrés",
+    "apellido": "Fernández",
+    "tipoDocumento": "DNI",
+    "DNI": "89564756",
+    "idRol": 1,
+    "email": "afernandez@gmail.com",
+    "password": "afernandez",
+    "idCarrera": 1,
+    "tituloPresentacion": "Estudiante de quinto ciclo",
+    "presentacion": "Hola! Mi nombre es Andrés y soy estudiante de quinto ciclo posicionado en décimo superior",
+    "grado": "Pregrado"
+}
+###
+POST http://localhost:3001/personas
+Content-Type: application/json
+
+{
+    "idPersona": 2,
+    "nombre": "Liliana",
+    "apellido": "Torres",
+    "tipoDocumento": "DNI",
+    "DNI": "42467913",
+    "idRol": 2,
+    "email": "ltorres@gmail.com",
+    "password": "ltorres",
+    "idCarrera": 2,
+    "tituloPresentacion": "Profesora de la carrera de Ingeniería de Software",
+    "presentacion": "Hola! Soy la profesora Liliana Torres y soy profesora de la carrera de Ingeniería de Software",
+    "grado": "Magister"
+}
+###
+
+POST http://localhost:3001/personas
+Content-Type: application/json
+
+{
+    "idPersona": 3,
+    "nombre": "Amanda",
+    "apellido": "Campos",
+    "tipoDocumento": "DNI",
+    "DNI": "89567952",
+    "idRol": 1,
+    "email": "acampos@gmail.com",
+    "password": "acampos",
+    "idCarrera": 1,
+    "tituloPresentacion": "Estudiante de octavo ciclo",
+    "presentacion": "Hola! Mi nombre es Amanda y soy estudiante de octavo ciclo posicionado en décimo superior",
+    "grado": "Pregrado"
+}
+###
+
+POST http://localhost:3001/cursos
+Content-Type: application/json
+
+{
+    "idCurso":1,
+    "idCarrera":1,
+    "nombre":"Programacion Web"
+}
+###
+
+POST http://localhost:3001/personascursos
+Content-Type: application/json
+
+{
+    "idPersonaCurso": 1,
+    "idPersona": 1,
+    "idCurso": 1
+}
+###
+
+POST http://localhost:3001/horarios
+Content-Type: application/json
+
+{
+    "idHorario": 1,
+    "idPersona": 2,
+    "horaInicio": "08:00:00",
+    "diaSemana": "Lunes",
+    "horaFin": "09:00:00"
+}
+###
+
+POST http://localhost:3001/citas
+Content-Type: application/json
+
+{
+    "idCita": 1,
+    "idPersonaDocente": 2,
+    "idPersonaAlumno": 1,
+    "fecha": "2023-07-23",
+    "horaInicio": "08:00:00",
+    "horaFin": "09:00:00",
+    "enlaceSesion": "en zoom xd",
+    "estado": "Pendiente",
+    "idCurso": 1
+}
+###
+
+POST http://localhost:3001/citas
+Content-Type: application/json
+
+{
+    "idCita": 2,
+    "idPersonaDocente": 2,
+    "idPersonaAlumno": 3,
+    "fecha": "2023-07-23",
+    "horaInicio": "08:00:00",
+    "horaFin": "09:00:00",
+    "enlaceSesion": "en zoom xd",
+    "estado": "Pendiente",
+    "idCurso": 1
+}
+###
+
+POST http://localhost:3001/calificaciones
+Content-Type: application/json
+
+{
+    "idCalificacion": 1,
+    "idCita": 1,
+    "calificacion": 3,
+    "comentario": "pucha"
+}
+###
+
+PUT http://localhost:3001/personas/
+Content-Type: application/json
+
+  {
+    "idPersona": 3,
+    "nombre": "Pepa",
+    "apellido": "Campos",
+    "tipoDocumento": "DNI",
+    "DNI": "89567952",
+    "idRol": 1,
+    "email": "acampos@gmail.com",
+    "password": "acampos",
+    "idCarrera": 1,
+    "tituloPresentacion": "Estudiante de octavo ciclo",
+    "presentacion": "Hola! Mi nombre es Amanda y soy estudiante de octavo ciclo posicionado en décimo superior",
+    "grado": "Pregrado"
+  }
+
+###
+
+GET http://localhost:3001/personas/1
+###
+
+DELETE http://localhost:3001/personas/3
+
+########
+
+POST http://localhost:3001/cursos/
+Content-Type: application/json
+
+{
+    "id": 7,
+    "nombre": "Gestion de Proyectos",
+    "nivel": 5,
+    "carrera": "Sistemas",
+    "idDocente": 2
+  }
